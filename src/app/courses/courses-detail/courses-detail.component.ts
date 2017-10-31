@@ -11,13 +11,18 @@ export class CoursesDetailComponent implements OnInit {
 
   constructor() {     
     debugger;    
-    var strNumber = Math.random().toString().split('.')[1];
-    var rest = strNumber.length/2;
-    var loop = Math.round(rest)-1;
 
-    for (var index = 0; index < loop; index = index+2) {
-      this.titleRandom += String.fromCharCode(+strNumber.substr(index, 2));
-    }
+    setInterval(function(){
+
+      var strNumber = Math.random().toString().split('.')[1];
+      var rest = strNumber.length/2;
+      var loop = Math.round(rest)-1;
+
+      for (var index = 0; index < loop; index = index+2) {
+        this.titleRandom += String.fromCharCode(+strNumber.substr(index, 2));
+      }
+      
+    }, 1000);
   }
 
   ngOnInit() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from './courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  titleRandom = Math.random().toString().split('.')[1];
+  title = Math.random().toString().split('.')[1];
+  items = [];
 
+  constructor(private service:CoursesService) { 
 
-  constructor() { }
+    this.items = this.service.getCourses();
+
+  }
 
   ngOnInit() {
   }
 
 }
+

@@ -1,7 +1,10 @@
 <p>
-  courses works of number {{titleRandom}}!
+  list of courses works of number {{title}}!
 </p>
 
 <hr/>
-
-<app-courses-detail></app-courses-detail>
+<ul>
+  <li *ngFor="let item of items">
+    {{item.name}}
+  </li>
+</ul>
