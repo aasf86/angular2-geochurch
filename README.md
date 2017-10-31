@@ -1,3 +1,3 @@
 # angular2-geochurch
 
-class 6
+class 10 in the half
