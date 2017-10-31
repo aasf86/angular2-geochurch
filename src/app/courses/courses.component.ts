@@ -13,7 +13,7 @@ export class CoursesComponent implements OnInit {
 
   constructor(private service:CoursesService) { 
 
-    this.items = this.service.getCourses();
+    this.items = this.service.getAll();
 
   }
 
