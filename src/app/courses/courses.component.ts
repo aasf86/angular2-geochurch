@@ -13,8 +13,12 @@ export class CoursesComponent implements OnInit {
 
   constructor(private service:CoursesService) { 
 
-    this.items = this.service.getAll();
+    setInterval(run => this.items = this.service.getAll(), 1);
 
+  }
+
+  deleteAll(){
+    this.service.deleteAll()
   }
 
   ngOnInit() {

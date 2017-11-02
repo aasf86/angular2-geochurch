@@ -36,4 +36,8 @@ export class CoursesService {
   add(course:any){
     this.addCourse(course);
   }
+
+  deleteAll(){
+    localStorage.setItem('planets','[]');
+  }
 }

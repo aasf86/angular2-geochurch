@@ -12,7 +12,7 @@ import { CoursesModule } from './courses/courses.module';
     FirstComponent2Component
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     CoursesModule
   ],
   providers: [],

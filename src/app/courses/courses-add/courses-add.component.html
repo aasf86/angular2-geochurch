@@ -1,10 +1,35 @@
 
-<form class="well">
+<div class="well" style="margin: 10px;" >
   <div class="row">
-    <input type="text" name="id" [(ngModel)]="id" disabled="disabled" placeholder="id" class="form-control" >
-    <input type="text" name="name" [(ngModel)]="name" placeholder="nome" class="form-control" >
-    <input type="button" (ngClick)="addPlanet" value="adicionar" class="btn btn-primary form-control">
+    <input type="text" disabled="disabled" placeholder="id" class="form-control" />
+    <!--input type="text" [value]="name" (input)="name = $event.target.value" placeholder="name" class="form-control" /-->
+    <input 
+      type="text" 
+      [(ngModel)]="name" 
+      (keyup.enter)="addPlanet()"
+      placeholder="name" 
+      class="form-control" />
+    <p>your name is {{name}}</p>
+    <button class="btn btn-primary" (click)="addPlanet()">
+      <i class="glyphicon glyphicon-plus"></i>
+      Adicionar
+    </button>
+    </div>  
   </div>
-  {{id}} - {{name}}
 
-</form>
+  <hr/>
+
+  <select #classe (change)="return" class="form-control">
+    <option value="success">success</option>
+    <option value="info">info</option>
+    <option value="warning">warning</option>
+    <option value="danger">danger</option>
+  </select>
+
+  <hr/>
+
+  <div class="alert alert-{{classe.value}}" role="alert">{{classe.value}}</div>
+  <div class="alert" [class.alert-success]="classe.value == 'success'" ng *ngIf="classe.value == 'success'" role="alert">class binding working</div>
+  
+
+  {{id}} - {{name}}

@@ -3,6 +3,12 @@
 </p>
 
 <hr/>
+
+<button class="btn btn-danger" (click)="deleteAll()">
+    <i class="glyphicon glyphicon-trash"></i>
+    Apagar tudos
+</button>
+
 <ul>
   <li *ngFor="let item of items">
     {{item.name}}

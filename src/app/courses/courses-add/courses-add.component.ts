@@ -10,14 +10,15 @@ import { AlertModule } from 'ngx-bootstrap';
 export class CoursesAddComponent implements OnInit {
 
   
-  id = Math.random().toString().split('.')[1];
-  name = '';
+  id:string = '';
+  name:string = 'anderson';
 
   constructor(private service:CoursesService) { }
 
   addPlanet() {
-    debugger;
-    this.service.add({id: this.id, name: this.name});
+    debugger;    
+    this.service.add({id: Math.random().toString().split('.')[1], name: this.name});
+    this.name = '';
   }
 
   ngOnInit() {
