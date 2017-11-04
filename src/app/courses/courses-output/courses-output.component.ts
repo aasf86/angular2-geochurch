@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-courses-output',
   templateUrl: './courses-output.component.html',
   styleUrls: ['./courses-output.component.css']
 })
-export class CoursesOutputComponent implements OnInit {
+export class CoursesOutputComponent implements OnInit, OnChanges {
+
 
   @Input()
   value:number = 0;
@@ -30,4 +31,7 @@ export class CoursesOutputComponent implements OnInit {
 
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('CoursesOutputComponent: i am changed');
+  }
 }

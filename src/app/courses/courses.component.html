@@ -23,3 +23,5 @@
 <hr/>
 <app-courses-output [value]="localValue" (changeValue)="onChangeValue($event)"></app-courses-output>
 
+<app-courses-circle *ngIf="localValue > 14"></app-courses-circle>
+
