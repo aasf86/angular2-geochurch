@@ -21,6 +21,11 @@ export class CoursesComponent implements OnInit {
     this.service.deleteAll()
   }
 
+  lastName(){
+    if(this.items && this.items.length > 0)
+      return this.items[this.items.length-1].name    
+    return '';    
+  }
   ngOnInit() {
   }
 

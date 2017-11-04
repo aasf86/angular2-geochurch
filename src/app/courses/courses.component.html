@@ -6,7 +6,7 @@
 
 <button class="btn btn-danger" (click)="deleteAll()">
     <i class="glyphicon glyphicon-trash"></i>
-    Apagar tudos
+    remove all
 </button>
 
 <ul>
@@ -14,4 +14,6 @@
     {{item.name}}
   </li>
 </ul>
+
+<app-courses-binding [name]="lastName()"></app-courses-binding>
 

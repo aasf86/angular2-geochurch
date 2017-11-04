@@ -15,8 +15,7 @@ export class CoursesAddComponent implements OnInit {
 
   constructor(private service:CoursesService) { }
 
-  addPlanet() {
-    debugger;    
+  addPlanet() {    
     this.service.add({id: Math.random().toString().split('.')[1], name: this.name});
     this.name = '';
   }
