@@ -15,5 +15,11 @@
   </li>
 </ul>
 
+<hr/>
 <app-courses-binding [name]="lastName()"></app-courses-binding>
+<pre> 
+  here the value external {{localValue}}
+</pre>
+<hr/>
+<app-courses-output [value]="localValue" (changeValue)="onChangeValue($event)"></app-courses-output>
 
