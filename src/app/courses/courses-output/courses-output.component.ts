@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  ViewChild,
+  ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-courses-output',
@@ -14,12 +23,16 @@ export class CoursesOutputComponent implements OnInit, OnChanges {
   @Output()
   changeValue:EventEmitter<any> = new EventEmitter();
 
+  @ViewChild('inputView')
+  inputField:ElementRef  
+
   constructor() { }
 
   minus(){    
     if(this.value == 0) return;
     this.value--;
-    this.changeValue.emit(this.value.toString());
+    this.changeValue.emit(this.value.toString());  
+    console.log(this.inputField);  
   }
 
   more(){    
@@ -32,6 +45,6 @@ export class CoursesOutputComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('CoursesOutputComponent: i am changed');
+    console.log('CoursesOutputComponent: i am changed');    
   }
 }
