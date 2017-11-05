@@ -13,7 +13,8 @@ import { CoursesMenuComponent } from './courses-menu/courses-menu.component';
 import { CoursesContentComponent } from './courses-content/courses-content.component';
 import { 
   CoursesDirective, 
-  HighightCoursesDirective } from './courses.directive';
+  HighLightCoursesDirective,
+  HighLightBatmanCoursesDirective } from './courses.directive';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {
     CoursesMenuComponent, 
     CoursesContentComponent, 
     CoursesDirective,
-    HighightCoursesDirective
+    HighLightCoursesDirective,
+    HighLightBatmanCoursesDirective
   ],
   exports:[
     CoursesComponent, 

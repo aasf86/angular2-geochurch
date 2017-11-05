@@ -3,7 +3,8 @@ import {
   ElementRef, 
   Renderer, 
   Renderer2,
-  HostListener } from '@angular/core';
+  HostListener, 
+  HostBinding} from '@angular/core';
 
 @Directive({
   selector: '[appCourses]'
@@ -22,22 +23,53 @@ export class CoursesDirective {
 }
 
 @Directive({
-  selector: 'p[highight]'
+  selector: 'p[highLight]'
 })
-export class HighightCoursesDirective {
-
-  @HostListener('mouseover')
-  onMouseOver(){    
-    this._renderer.setElementStyle(this._elementRef.nativeElement, 'background-color', 'red');
-  }
-
-  @HostListener('mouseout')
-  onMouseOut(){    
-    this._renderer.setElementStyle(this._elementRef.nativeElement, 'background-color', 'white');
-  }
+export class HighLightCoursesDirective {
 
   constructor(
     private _elementRef:ElementRef, 
     private _renderer:Renderer) { }
+
+  @HostListener('mouseover')
+  onMouseOver(){    
+    this.setColor('red');
+  }
+
+  @HostListener('mouseout')
+  onMouseOut(){    
+    this.setColor('white');
+  }
+
+  private setColor(color:string):void{
+    this._renderer.setElementStyle(this._elementRef.nativeElement, 'background-color', color);
+  }
 }
 
+@Directive({
+  selector: 'p[highLightBatman]'
+})
+export class HighLightBatmanCoursesDirective {
+
+  constructor(
+    private _elementRef:ElementRef, 
+    private _renderer:Renderer) { }
+
+  @HostListener('mouseover')
+  onMouseOver(){    
+    this.backgroundColor = 'black';
+    this.color = 'white';
+  }
+
+  @HostListener('mouseout')
+  onMouseOut(){    
+    this.backgroundColor = 'white';
+    this.color = 'black';
+  }
+
+  @HostBinding('style.backgroundColor')  
+  backgroundColor:string;
+
+  @HostBinding('style.color')
+  color:string;
+}
