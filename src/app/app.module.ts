@@ -1,19 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FirstComponentComponent } from './first-component/first-component.component';
-import { FirstComponent2Component } from './first-component2/first-component2.component';
 import { CoursesModule } from './courses/courses.module';
+import { CrudComponent } from './crud/crud.component';
+import { CrudModule } from './crud/crud.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FirstComponentComponent,
-    FirstComponent2Component
+    AppComponent
   ],
   imports: [
-    BrowserModule,    
-    CoursesModule
+    BrowserModule,/*
+    CoursesModule,*/
+    CrudModule
   ],
   providers: [],
   bootstrap: [AppComponent]
