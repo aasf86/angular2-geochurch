@@ -4,7 +4,10 @@ import {
   Renderer, 
   Renderer2,
   HostListener, 
-  HostBinding} from '@angular/core';
+  HostBinding,
+  TemplateRef,
+  ViewContainerRef,
+  Input} from '@angular/core';
 
 @Directive({
   selector: '[appCourses]'
@@ -72,4 +75,23 @@ export class HighLightBatmanCoursesDirective {
 
   @HostBinding('style.color')
   color:string;
+}
+
+@Directive({
+  selector: '[ngElse]'
+})
+export class ElseCoursesDirective {
+
+  constructor(
+    private _templateRef:TemplateRef<any>, 
+    private _viewContainerRef:ViewContainerRef) { }
+
+  @Input() set ngElse(condition:boolean) {
+    if(!condition) {
+      this._viewContainerRef.createEmbeddedView(this._templateRef);
+    }
+    else {
+      this._viewContainerRef.clear();
+    }
+  }
 }

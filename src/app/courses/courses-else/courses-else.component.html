@@ -1,0 +1,11 @@
+<div>
+  <h3>directive <strong>*ngElse</strong></h3>
+  <br/>
+  <button class="btn btn-default" (click)="toogleFlag()">@</button>
+  <span *ngIf="flag" class="badge badge-primary">Primary</span>
+  <span *ngIf="flag" class="badge badge-success">Success</span>
+  <span class="badge badge-info">Info</span>
+  <span *ngElse="flag" class="badge badge-warning">Warning</span>
+  <span *ngElse="flag" class="badge badge-danger">Danger</span>
+  <button class="btn btn-default" (click)="toogleFlag()">@</button>
+</div>

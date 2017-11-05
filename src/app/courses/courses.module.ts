@@ -11,10 +11,13 @@ import { CoursesOutputComponent } from './courses-output/courses-output.componen
 import { CoursesCircleComponent } from './courses-circle/courses-circle.component';
 import { CoursesMenuComponent } from './courses-menu/courses-menu.component';
 import { CoursesContentComponent } from './courses-content/courses-content.component';
+import { CoursesElseComponent } from './courses-else/courses-else.component';
+
 import { 
   CoursesDirective, 
   HighLightCoursesDirective,
-  HighLightBatmanCoursesDirective } from './courses.directive';
+  HighLightBatmanCoursesDirective,
+  ElseCoursesDirective } from './courses.directive';
 
 @NgModule({
   imports: [
@@ -32,7 +35,9 @@ import {
     CoursesContentComponent, 
     CoursesDirective,
     HighLightCoursesDirective,
-    HighLightBatmanCoursesDirective
+    HighLightBatmanCoursesDirective,
+    CoursesElseComponent,
+    ElseCoursesDirective
   ],
   exports:[
     CoursesComponent, 
