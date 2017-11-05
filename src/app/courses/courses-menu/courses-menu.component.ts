@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesMenuComponent implements OnInit {
 
-  tab:string = 'home';
+  tab:string = 'Home';
 
   constructor() { }
 

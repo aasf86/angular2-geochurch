@@ -10,14 +10,33 @@ import { CoursesBindingComponent } from './courses-binding/courses-binding.compo
 import { CoursesOutputComponent } from './courses-output/courses-output.component';
 import { CoursesCircleComponent } from './courses-circle/courses-circle.component';
 import { CoursesMenuComponent } from './courses-menu/courses-menu.component';
+import { CoursesContentComponent } from './courses-content/courses-content.component';
+import { 
+  CoursesDirective, 
+  HighightCoursesDirective } from './courses.directive';
 
 @NgModule({
   imports: [
     CommonModule,    
     FormsModule
   ],
-  declarations: [CoursesComponent, CoursesDetailComponent, CoursesAddComponent, CoursesBindingComponent, CoursesOutputComponent, CoursesCircleComponent, CoursesMenuComponent],
-  exports:[CoursesComponent, CoursesDetailComponent, CoursesAddComponent],
+  declarations: [
+    CoursesComponent, 
+    CoursesDetailComponent, 
+    CoursesAddComponent, 
+    CoursesBindingComponent, 
+    CoursesOutputComponent, 
+    CoursesCircleComponent, 
+    CoursesMenuComponent, 
+    CoursesContentComponent, 
+    CoursesDirective,
+    HighightCoursesDirective
+  ],
+  exports:[
+    CoursesComponent, 
+    CoursesDetailComponent, 
+    CoursesAddComponent
+  ],
   providers:[CoursesService]
 })
 export class CoursesModule { }

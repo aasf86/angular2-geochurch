@@ -23,6 +23,33 @@
 </pre>
 <hr/>
 <app-courses-output [value]="localValue" (changeValue)="onChangeValue($event)"></app-courses-output>
-
+<hr/>
 <app-courses-circle *ngIf="localValue > 14"></app-courses-circle>
+<hr/>
+<app-courses-content>
+    <app-courses-circle *ngIf="localValue > 14"></app-courses-circle>
+    unmet peer dependency
+</app-courses-content>
+
+<hr/>
+<app-courses-content >
+
+</app-courses-content>
+<hr/>
+<div appCourses>
+  <div>
+      <span class="title">Anderson element with [appCourses]</span>    
+      <span class="body">but, it your life</span>        
+  </div>
+</div>
+<hr/>
+<div highight>
+  <div>
+      <span class="title">secund directive [highight]</span>    
+      <span class="body">but, it your life</span>        
+  </div>
+</div>
+
+
+
 
