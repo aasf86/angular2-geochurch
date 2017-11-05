@@ -2,3 +2,6 @@
 button {
     cursor: pointer;
 }
+body{
+    padding: 10px;
+}

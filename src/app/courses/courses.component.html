@@ -10,11 +10,24 @@
     remove all
 </button>
 
-<ul>
-  <li *ngFor="let item of items">
-    {{item.name}}
-  </li>
-</ul>
+<app-courses-add></app-courses-add>  
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col" style="width: 1%;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td scope="row">#{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td style="width: 1%;"><button class="btn btn-danger" (click)="deleteItem(item)" >X</button> </td>
+    </tr>
+  </tbody>
+</table>
 
 <hr/>
 <app-courses-binding [name]="lastName()"></app-courses-binding>

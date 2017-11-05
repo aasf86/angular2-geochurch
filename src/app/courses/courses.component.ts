@@ -14,11 +14,7 @@ export class CoursesComponent implements OnInit {
 
   localValue:number = 15;
 
-  constructor(private service:CoursesService) { 
-
-    setInterval(run => this.items = this.service.getAll(), 1);
-
-  }
+  constructor(private service:CoursesService) { }
 
   deleteAll(){
     this.service.deleteAll()
@@ -34,8 +30,17 @@ export class CoursesComponent implements OnInit {
     this.localValue = $event;    
   }
 
-  ngOnInit() {
+  deleteItem(item) {
+    if(confirm('Do you sure to want delete item?')){
+      this.service.deleteItem(item);
+    }
   }
 
+  ngOnInit() {
+    this.items = this.service.getAll();
+    this.service.trigger.subscribe((list)=>{
+      this.items = list;
+    });    
+  }
 }
 
