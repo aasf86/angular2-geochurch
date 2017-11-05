@@ -9,13 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { CoursesBindingComponent } from './courses-binding/courses-binding.component';
 import { CoursesOutputComponent } from './courses-output/courses-output.component';
 import { CoursesCircleComponent } from './courses-circle/courses-circle.component';
+import { CoursesMenuComponent } from './courses-menu/courses-menu.component';
 
 @NgModule({
   imports: [
     CommonModule,    
     FormsModule
   ],
-  declarations: [CoursesComponent, CoursesDetailComponent, CoursesAddComponent, CoursesBindingComponent, CoursesOutputComponent, CoursesCircleComponent],
+  declarations: [CoursesComponent, CoursesDetailComponent, CoursesAddComponent, CoursesBindingComponent, CoursesOutputComponent, CoursesCircleComponent, CoursesMenuComponent],
   exports:[CoursesComponent, CoursesDetailComponent, CoursesAddComponent],
   providers:[CoursesService]
 })

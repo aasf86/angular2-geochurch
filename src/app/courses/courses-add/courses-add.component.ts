@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../courses.service';
-import { AlertModule } from 'ngx-bootstrap';
+//import { AlertModule } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-courses-add',
