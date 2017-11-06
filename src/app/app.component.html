@@ -1,10 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>    
-  <!--app-courses></app-courses-->  
-  <app-crud></app-crud>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">@aasf86</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a routerLinkActive="active" routerLink="home" class="nav-item nav-link">Home</a>
+          <a routerLinkActive="active" routerLink="crud" class="nav-item nav-link">Crud</a>          
+          <a routerLinkActive="active" routerLink="login" class="nav-item nav-link">Login</a>          
+        </div>
+      </div>
+      <span class="navbar-text">
+          <a href="https://angular.io/" target="-"><strong>#angular</strong></a>
+        </span>      
+    </nav>
+    <div class="container">
+        <a routerLinkActive="active" routerLink="crud/5" class="nav-item nav-link">Crud5</a>
+      <!--app-courses></app-courses-->  
+      <!--app-crud></app-crud-->      
+      <router-outlet></router-outlet>
+    </div>
 </div>
 
 

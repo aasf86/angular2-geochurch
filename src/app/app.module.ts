@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { CoursesModule } from './courses/courses.module';
 import { CrudComponent } from './crud/crud.component';
 import { CrudModule } from './crud/crud.module';
+import { AppRouterModule } from './app.router';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { CrudModule } from './crud/crud.module';
   imports: [
     BrowserModule,/*
     CoursesModule,*/
-    CrudModule
+    CrudModule,
+    LoginModule,
+    AppRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
