@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -9,10 +9,17 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CrudComponent implements OnInit, OnDestroy {
 
-  id:string;
+  id:number;
   subscription:Subscription;
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(
+    private route:ActivatedRoute,
+    private router:Router) { }
+
+  navigate(){
+    this.id++;
+    this.router.navigate(['/crud',this.id.toString()]);
+  }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => this.id = params.id);
