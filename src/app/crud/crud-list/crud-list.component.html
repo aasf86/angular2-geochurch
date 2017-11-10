@@ -1,0 +1,35 @@
+<table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col" style="width: 1%">@</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th style="text-overflow: ellipsis; width: 20%" scope="row">guid</th>
+        <td><input type="text" class="form-control" placeholder="name" (keyup)="searchName()" [(ngModel)]="name" name="name"></td>
+        <td><input type="text" class="form-control" placeholder="email" (keyup)="searchEmail()" [(ngModel)]="email" name="email"></td>
+        <td><input type="text" class="form-control" placeholder="phone" (keyup)="searchPhone()" [(ngModel)]="phone" name="phone"></td>
+        <td>
+            <button class="btn btn-outline-warning" dataToggle data-placement="top" title="clean the filter" (click)="clearFilter()">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+            </button>                                  
+        </td>
+      </tr>      
+      <tr *ngFor="let item of list">
+        <th style="text-overflow: ellipsis; width: 20%" scope="row" [innerText]="item.guid" ></th>
+        <td [innerText]="item.name"></td>
+        <td [innerText]="item.email"></td>
+        <td [innerText]="item.phone"></td>
+        <td>            
+            <button class="btn btn-outline-danger" (click)="removeUser(item)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

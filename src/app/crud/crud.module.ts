@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, TemplateRef } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,6 +6,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 
 import { CrudComponent } from './crud.component';
 import { CrudService } from './crud.service';
+import { CrudListComponent } from './crud-list/crud-list.component';
 
 @NgModule({
   imports:[RouterModule.forChild([
@@ -14,7 +15,8 @@ import { CrudService } from './crud.service';
     { path: 'home', component: CrudComponent },
     { path: '', component: CrudComponent }
   ])],
-  exports:[RouterModule]
+  exports:[RouterModule],
+  declarations: []
 })
 export class CrudRouterModule { }
 
@@ -22,9 +24,9 @@ export class CrudRouterModule { }
   imports: [
     CommonModule,    
     FormsModule,
-    CrudRouterModule
+    CrudRouterModule    
   ],
-  declarations: [CrudComponent],  
+  declarations: [CrudComponent, CrudListComponent],  
   exports:[CrudComponent],  
   providers:[CrudService]
 })
