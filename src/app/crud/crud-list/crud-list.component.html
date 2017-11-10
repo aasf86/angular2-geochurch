@@ -21,7 +21,7 @@
         </td>
       </tr>      
       <tr *ngFor="let item of list">
-        <th style="text-overflow: ellipsis; width: 20%" scope="row" [innerText]="item.guid" ></th>
+        <th style="text-overflow: ellipsis; width: 20%" scope="row" [innerText]="item.guid.split('-')[0]" ></th>
         <td [innerText]="item.name"></td>
         <td [innerText]="item.email"></td>
         <td [innerText]="item.phone"></td>
@@ -31,5 +31,8 @@
             </button>
         </td>
       </tr>
+      <tr *ngIf="list.length == 0">
+          <td style="text-align: center" colspan="5" scope="row"><strong>we dont found nuthing, sorry!!</strong></td>
+      </tr>      
     </tbody>
   </table>

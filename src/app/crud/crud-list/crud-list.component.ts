@@ -17,8 +17,7 @@ export class CrudListComponent implements OnInit {
   constructor(private service:CrudService) { }
   
   ngOnInit() {
-    this.service.selectAll(source => { 
-      console.log(source);
+    this.service.selectAll(source => {
       this.list = source; 
       this.listBack = source;
       this.search();
