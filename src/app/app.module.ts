@@ -6,6 +6,9 @@ import { CrudComponent } from './crud/crud.component';
 import { CrudModule } from './crud/crud.module';
 import { AppRouterModule } from './app.router';
 import { LoginModule } from './login/login.module';
+import { SharedModule } from './shared/shared.module';
+import { ReportModule } from './report/report.module';
+//import { ReportModule } from './report/report.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { LoginModule } from './login/login.module';
     CoursesModule,*/
     CrudModule,
     LoginModule,
-    AppRouterModule
+    AppRouterModule,
+    SharedModule,
+    ReportModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,10 +10,10 @@ import { CrudListComponent } from './crud-list/crud-list.component';
 
 @NgModule({
   imports:[RouterModule.forChild([
-    { path: 'crud', component: CrudComponent },
-    { path: 'crud/:id', component: CrudComponent },
-    { path: 'home', component: CrudComponent },
-    { path: '', component: CrudComponent }
+    { path: '#/crud', component: CrudComponent },
+    { path: '#/crud/:id', component: CrudComponent },
+    { path: '#/home', component: CrudComponent }/*,
+    { path: '', component: CrudComponent }*/
   ])],
   exports:[RouterModule],
   declarations: []

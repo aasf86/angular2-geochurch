@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 const AppRoutes:Routes = [
     //{ path: 'crud', component: CrudComponent },
     //{ path: 'crud/:id', component: CrudComponent },
-    { path: 'login', component: LoginComponent },    
+    { path: '#/login', component: LoginComponent },    
     //{ path: 'home', component: CrudComponent },
     //{ path: '', component: CrudComponent }
 ];
