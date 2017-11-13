@@ -1,9 +1,7 @@
-import { Directive, ElementRef, Renderer, Input, AfterViewInit } from '@angular/core';
-import * as $ from 'jquery';
-import * as bootstrap from 'bootstrap';
-import * as popper from 'popper.js';
+import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
+import * as tippy from 'tippy.js';
 
-const tooggleTooltip:string = 'toggle-tooltip';
+const tooggleTooltip:string = 'tippy';
 
 @Directive({
   selector: '['+tooggleTooltip+']'
@@ -13,52 +11,10 @@ export class DataToggleDirective implements AfterViewInit  {
   @Input(tooggleTooltip) 
   msg:string;
 
-  constructor(
-    private _elementRef:ElementRef,
-    private _renderer:Renderer
-  ) { }
-
-  ngOnInit(){
-
-  }
+  constructor(private _elementRef:ElementRef) { }
 
   ngAfterViewInit(): void {
-    
-    console.log(tooggleTooltip);
-    console.log(this._elementRef.nativeElement);
-    console.log(this.msg);    
-
-    setTimeout(() => {
-
-      debugger;
-
-      //$(this._elementRef.nativeElement).tooltip({ title: this.msg });
-      console.log($);
-      console.log(bootstrap);
-      console.log(popper);
-
-      
-    }, 1000);
+      if(this.msg) this._elementRef.nativeElement.setAttribute('title', this.msg);
+      tippy(this._elementRef.nativeElement, {theme: 'light', animation: 'scale', arrow: true});
   }  
 }
-/*
-@Directive({
-  selector: '[toggleTooltip]'
-})
-export class ToggleTooltipDirective {
-
-  @Input('toggleTooltip')
-  toggleTooltip:string;
-
-  constructor(
-    private _elementeRef:ElementRef,
-    private _renderer:Renderer
-  ) { }
-
-  ngOnInit(){
-    console.log('toggleTooltip');
-    console.log(this.toggleTooltip);
-    console.log(this._elementeRef.nativeElement);    
-  }
-}
-*/
