@@ -23,10 +23,22 @@ export class DataToggleDirective implements AfterViewInit  {
   }
 
   ngAfterViewInit(): void {
-
+    
     console.log(tooggleTooltip);
     console.log(this._elementRef.nativeElement);
-    console.log(this.msg);
+    console.log(this.msg);    
+
+    setTimeout(() => {
+
+      debugger;
+
+      //$(this._elementRef.nativeElement).tooltip({ title: this.msg });
+      console.log($);
+      console.log(bootstrap);
+      console.log(popper);
+
+      
+    }, 1000);
   }  
 }
 /*
