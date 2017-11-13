@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { User } from '../../model/user';
+//import { SharedModule } from '../../shared/shared.module'
 
 @Component({
   selector: 'app-crud-list',
@@ -8,6 +9,7 @@ import { User } from '../../model/user';
   styleUrls: ['./crud-list.component.css']
 })
 export class CrudListComponent implements OnInit {
+  tooltip = 'my messages';
   name = '';
   email = '';
   phone = '';

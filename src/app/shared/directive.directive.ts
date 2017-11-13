@@ -1,35 +1,52 @@
-import { Directive, ElementRef, Renderer, Input } from '@angular/core';
-/*
+import { Directive, ElementRef, Renderer, Input, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 import * as popper from 'popper.js';
-*/
+
+const tooggleTooltip:string = 'toggle-tooltip';
 
 @Directive({
-  selector: '[data-toggle]'
+  selector: '['+tooggleTooltip+']'
 })
-export class DataToggle {
+export class DataToggleDirective implements AfterViewInit  {  
 
-  @Input('data-toggle')
-  dataToggle:string;
+  @Input(tooggleTooltip) 
+  msg:string;
 
   constructor(
     private _elementRef:ElementRef,
     private _renderer:Renderer
-  ) { 
-    console.log(this._elementRef.nativeElement);
-    console.log(this.dataToggle);
-    /*
-    setTimeout(() => {      
-      console.log($);
-      console.log(bootstrap);      
-      console.log(popper);      
-      console.log($(this._elementRef.nativeElement));
-    });    
-    */
-  }
+  ) { }
+
   ngOnInit(){
+
+  }
+
+  ngAfterViewInit(): void {
+
+    console.log(tooggleTooltip);
     console.log(this._elementRef.nativeElement);
-    console.log(this.dataToggle);    
+    console.log(this.msg);
+  }  
+}
+/*
+@Directive({
+  selector: '[toggleTooltip]'
+})
+export class ToggleTooltipDirective {
+
+  @Input('toggleTooltip')
+  toggleTooltip:string;
+
+  constructor(
+    private _elementeRef:ElementRef,
+    private _renderer:Renderer
+  ) { }
+
+  ngOnInit(){
+    console.log('toggleTooltip');
+    console.log(this.toggleTooltip);
+    console.log(this._elementeRef.nativeElement);    
   }
 }
+*/

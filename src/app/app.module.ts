@@ -19,9 +19,9 @@ import { ReportModule } from './report/report.module';
     CoursesModule,*/
     CrudModule,
     LoginModule,
-    AppRouterModule,
-    SharedModule,
-    ReportModule
+    AppRouterModule,    
+    ReportModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { DataToggle } from './directive.directive';
+import { DataToggleDirective } from './directive.directive';
 
 @NgModule({  
-  declarations: [DataToggle],
-  exports: [DataToggle]
+  declarations: [DataToggleDirective],
+  exports: [DataToggleDirective]
 })
 export class SharedModule { }

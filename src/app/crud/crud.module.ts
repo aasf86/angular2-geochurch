@@ -7,6 +7,7 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { CrudComponent } from './crud.component';
 import { CrudService } from './crud.service';
 import { CrudListComponent } from './crud-list/crud-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports:[RouterModule.forChild([
@@ -24,7 +25,8 @@ export class CrudRouterModule { }
   imports: [
     CommonModule,    
     FormsModule,
-    CrudRouterModule    
+    CrudRouterModule,
+    SharedModule
   ],
   declarations: [CrudComponent, CrudListComponent],  
   exports:[CrudComponent],  
