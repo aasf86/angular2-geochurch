@@ -9,10 +9,20 @@ export class AppComponent {
   
   path = '';
   msg:string = 'message';
-  user:any;
+  user:any = null;
+  linkGPlus:string = '';
 
-  ngOnInit(){    
-    this.user = JSON.parse(localStorage.getItem('user'));    
+  ngOnInit(){
+    var result = JSON.parse(localStorage.getItem('user'));
+    this.user = result.user;//additionalUserInfo.profile.link  
+    this.linkGPlus = result.additionalUserInfo.profile.link;
+    console.log(this.user);
   }  
+
+  logout(){
+    this.user = null;
+    localStorage.setItem('user', null);
+    location.reload();
+  }
 }
 

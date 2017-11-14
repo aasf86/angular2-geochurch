@@ -25,7 +25,7 @@ export class CrudService {
       firebase.initializeApp(config);
 
       this.database = firebase.database();
-            
+
       this.provider = new firebase.auth.GoogleAuthProvider();
       this.provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
       firebase.auth().languageCode = 'pt';
@@ -57,8 +57,8 @@ export class CrudService {
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
-      localStorage.setItem('user', JSON.stringify(user));
-      // ...
+      localStorage.setItem('user', JSON.stringify(result));
+      // ...      
       console.log(result);
       callBack(user);
     }).catch(function(error) {

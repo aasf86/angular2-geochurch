@@ -14,17 +14,24 @@
           <a routerLinkActive="active" routerLink="#/login" class="nav-item nav-link">Login</a>          
         </div>
       </div>
-      <!--span class="navbar-text">
-        <a href="https://angular.io/" target="-"><strong>#angular</strong></a>
-      </span-->
-      <span class="navbar-text">
-        <span [innerText]="user?.displayName+'('+user?.email+')'"></span>
+      <span class="navbar-text" *ngIf="user">
+        <a [href]="linkGPlus" target="-"><strong [innerText]="user?.displayName"></strong></a>
+      </span>      
+      <span class="navbar-text" *ngIf="user">
+        <span [innerText]="'('+user?.email+')'"></span>
       </span>
       &nbsp;
-      <ul id="#js-popoverContent" class="nav navbar-nav">
+      <ul id="#js-popoverContent" class="nav navbar-nav" *ngIf="user">
         <li class="md aax">          
             <img class="img-fluid" style="border-radius: 50%;border-style: none; width: 35px; height: 35px;" [src]="user?.photoURL">
         </li>
+        &nbsp;
+        <li class="md aax">
+            <button class="btn btn-outline-danger" (click)="logout()">
+              <i class="fa fa-sign-out"></i>
+              Logout
+            </button>
+          </li>        
       </ul>      
     </nav>
     <div class="container">        
