@@ -33,7 +33,7 @@
   <hr/>
 
   <div class="alert alert-{{classe.value}}" role="alert">{{classe.value}}</div>
-  <div class="alert" [class.alert-success]="classe.value == 'success'" ng *ngIf="classe.value == 'success'" role="alert">class binding working</div>
+  <div class="alert" [class.alert-success]="classe.value == 'success'" *ngIf="classe.value == 'success'" role="alert">class binding working</div>
   
 
   {{id}} - {{name}}

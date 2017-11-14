@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this._services.login();
+    this._services.login( user => {
+      if(user != null) location.reload(true);
+    });
   }
 
 }

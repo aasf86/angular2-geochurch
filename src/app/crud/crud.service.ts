@@ -25,7 +25,7 @@ export class CrudService {
       firebase.initializeApp(config);
 
       this.database = firebase.database();
-
+            
       this.provider = new firebase.auth.GoogleAuthProvider();
       this.provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
       firebase.auth().languageCode = 'pt';
@@ -51,14 +51,16 @@ export class CrudService {
     });
    }
 
-   login(){
+   login(callBack){
     firebase.auth().signInWithPopup(this.provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
       // The signed-in user info.
       var user = result.user;
+      localStorage.setItem('user', JSON.stringify(user));
       // ...
       console.log(result);
+      callBack(user);
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
