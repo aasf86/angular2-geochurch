@@ -11,7 +11,11 @@
       <input type="password" class="form-control" placeholder="password">
     </div>
     <div class="col">
-      <button class="btn btn-primary" (click)="login()">login</button>
-    </div>    
+      <button class="btn btn-outline-dark" (click)="login()" tippy="Sign in with Google">
+        <!--i class="fa fa-google" aria-hidden="true"></i-->
+        <img style="height: 18px;" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+        Login
+      </button>
+    </div>
   </div>
 </form>

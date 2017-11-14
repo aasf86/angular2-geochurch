@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CrudService } from './crud/crud.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
   user:any = null;
   linkGPlus:string = '';
 
+  constructor(private _services:CrudService) { }
+
   ngOnInit(){
     var result = JSON.parse(localStorage.getItem('user'));
     this.user = result.user;//additionalUserInfo.profile.link  
@@ -23,6 +26,12 @@ export class AppComponent {
     this.user = null;
     localStorage.setItem('user', null);
     location.reload();
+  }
+
+  login(){
+    this._services.login( user => {
+      if(user != null) location.reload(true);
+    });
   }
 }
 

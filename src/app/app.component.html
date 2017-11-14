@@ -14,6 +14,10 @@
           <a routerLinkActive="active" routerLink="#/login" class="nav-item nav-link">Login</a>          
         </div>
       </div>
+      <button class="btn btn-outline-light" (click)="login()" tippy="Sign in with Google" *ngIf="!user">
+        <img style="height: 18px;" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+        Login
+      </button>      
       <span class="navbar-text" *ngIf="user">
         <a [href]="linkGPlus" target="-"><strong [innerText]="user?.displayName"></strong></a>
       </span>      
@@ -29,7 +33,7 @@
         <li class="md aax">
             <button class="btn btn-outline-danger" (click)="logout()">
               <i class="fa fa-sign-out"></i>
-              Logout
+              Exit
             </button>
           </li>        
       </ul>      
