@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n      <a class=\"navbar-brand\" href=\"#\">@aasf86</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n        <div class=\"navbar-nav\">\r\n          <a routerLinkActive=\"active\" routerLink=\"#/home\" class=\"nav-item nav-link\">Home</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/crud\" class=\"nav-item nav-link\">Crud</a>          \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report\" class=\"nav-item nav-link\">Report</a>                    \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report/list\" class=\"nav-item nav-link\">Report list</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/login\" class=\"nav-item nav-link\">Login</a>          \r\n        </div>\r\n      </div>\r\n      <span class=\"navbar-text\">\r\n          <a href=\"https://angular.io/\" target=\"-\"><strong>#angular</strong></a>\r\n        </span>      \r\n    </nav>\r\n    <div class=\"container\">        \r\n      <!--app-courses></app-courses-->  \r\n      <!--app-crud></app-crud-->      \r\n      <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n      <a class=\"navbar-brand\" href=\"#\">@aasf86</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n        <div class=\"navbar-nav\">\r\n          <a routerLinkActive=\"active\" routerLink=\"#/home\" class=\"nav-item nav-link\">Home</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/crud\" class=\"nav-item nav-link\">Crud</a>          \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report\" class=\"nav-item nav-link\">Report</a>                    \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report/list\" class=\"nav-item nav-link\">Report list</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/login\" class=\"nav-item nav-link\">Login</a>          \r\n        </div>\r\n      </div>\r\n      <!--span class=\"navbar-text\">\r\n        <a href=\"https://angular.io/\" target=\"-\"><strong>#angular</strong></a>\r\n      </span-->\r\n      <span class=\"navbar-text\">\r\n        <span [innerText]=\"user?.displayName+'('+user?.email+')'\"></span>\r\n      </span>\r\n      &nbsp;\r\n      <ul id=\"#js-popoverContent\" class=\"nav navbar-nav\">\r\n        <li class=\"md aax\">          \r\n            <img class=\"img-fluid\" style=\"border-radius: 50%;border-style: none; width: 35px; height: 35px;\" [src]=\"user?.photoURL\">\r\n        </li>\r\n      </ul>      \r\n    </nav>\r\n    <div class=\"container\">        \r\n      <!--app-courses></app-courses-->  \r\n      <!--app-crud></app-crud-->      \r\n      <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -60,6 +60,9 @@ var AppComponent = (function () {
         this.path = '';
         this.msg = 'message';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.user = JSON.parse(localStorage.getItem('user'));
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -485,14 +488,16 @@ var CrudService = (function () {
             callBack(listResult);
         });
     };
-    CrudService.prototype.login = function () {
+    CrudService.prototype.login = function (callBack) {
         __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().signInWithPopup(this.provider).then(function (result) {
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
+            localStorage.setItem('user', JSON.stringify(user));
             // ...
             console.log(result);
+            callBack(user);
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -566,7 +571,10 @@ var LoginComponent = (function () {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
-        this._services.login();
+        this._services.login(function (user) {
+            if (user != null)
+                location.reload(true);
+        });
     };
     return LoginComponent;
 }());
