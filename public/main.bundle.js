@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n      <a class=\"navbar-brand\" href=\"#\">@aasf86</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n        <div class=\"navbar-nav\">\r\n          <a routerLinkActive=\"active\" routerLink=\"#/home\" class=\"nav-item nav-link\">Home</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/crud\" class=\"nav-item nav-link\">Crud</a>          \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report\" class=\"nav-item nav-link\">Report</a>                    \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report/list\" class=\"nav-item nav-link\">Report list</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/login\" class=\"nav-item nav-link\">Login</a>          \r\n        </div>\r\n      </div>\r\n      <!--span class=\"navbar-text\">\r\n        <a href=\"https://angular.io/\" target=\"-\"><strong>#angular</strong></a>\r\n      </span-->\r\n      <span class=\"navbar-text\">\r\n        <span [innerText]=\"user?.displayName+'('+user?.email+')'\"></span>\r\n      </span>\r\n      &nbsp;\r\n      <ul id=\"#js-popoverContent\" class=\"nav navbar-nav\">\r\n        <li class=\"md aax\">          \r\n            <img class=\"img-fluid\" style=\"border-radius: 50%;border-style: none; width: 35px; height: 35px;\" [src]=\"user?.photoURL\">\r\n        </li>\r\n      </ul>      \r\n    </nav>\r\n    <div class=\"container\">        \r\n      <!--app-courses></app-courses-->  \r\n      <!--app-crud></app-crud-->      \r\n      <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div>\r\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n      <a class=\"navbar-brand\" href=\"#\">@aasf86</a>\r\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\r\n        <div class=\"navbar-nav\">\r\n          <a routerLinkActive=\"active\" routerLink=\"#/home\" class=\"nav-item nav-link\">Home</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/crud\" class=\"nav-item nav-link\">Crud</a>          \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report\" class=\"nav-item nav-link\">Report</a>                    \r\n          <a routerLinkActive=\"active\" routerLink=\"#/report/list\" class=\"nav-item nav-link\">Report list</a>\r\n          <a routerLinkActive=\"active\" routerLink=\"#/login\" class=\"nav-item nav-link\">Login</a>          \r\n        </div>\r\n      </div>\r\n      <button class=\"btn btn-outline-light\" (click)=\"login()\" tippy=\"Sign in with Google\" *ngIf=\"!user\">\r\n        <img style=\"height: 18px;\" src=\"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg\">\r\n        Login\r\n      </button>      \r\n      <span class=\"navbar-text\" *ngIf=\"user\">\r\n        <a [href]=\"linkGPlus\" target=\"-\"><strong [innerText]=\"user?.displayName\"></strong></a>\r\n      </span>      \r\n      <span class=\"navbar-text\" *ngIf=\"user\">\r\n        <span [innerText]=\"'('+user?.email+')'\"></span>\r\n      </span>\r\n      &nbsp;\r\n      <ul id=\"#js-popoverContent\" class=\"nav navbar-nav\" *ngIf=\"user\">\r\n        <li class=\"md aax\">          \r\n            <img class=\"img-fluid\" style=\"border-radius: 50%;border-style: none; width: 35px; height: 35px;\" [src]=\"user?.photoURL\">\r\n        </li>\r\n        &nbsp;\r\n        <li class=\"md aax\">\r\n            <button class=\"btn btn-outline-danger\" (click)=\"logout()\">\r\n              <i class=\"fa fa-sign-out\"></i>\r\n              Exit\r\n            </button>\r\n          </li>        \r\n      </ul>      \r\n    </nav>\r\n    <div class=\"container\">        \r\n      <!--app-courses></app-courses-->  \r\n      <!--app-crud></app-crud-->      \r\n      <router-outlet></router-outlet>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -48,20 +48,42 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__crud_crud_service__ = __webpack_require__("../../../../../src/app/crud/crud.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_services) {
+        this._services = _services;
         this.path = '';
         this.msg = 'message';
+        this.user = null;
+        this.linkGPlus = '';
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.user = JSON.parse(localStorage.getItem('user'));
+        var result = JSON.parse(localStorage.getItem('user'));
+        this.user = result.user; //additionalUserInfo.profile.link  
+        this.linkGPlus = result.additionalUserInfo.profile.link;
+        console.log(this.user);
+    };
+    AppComponent.prototype.logout = function () {
+        this.user = null;
+        localStorage.setItem('user', null);
+        location.reload();
+    };
+    AppComponent.prototype.login = function () {
+        this._services.login(function (user) {
+            if (user != null)
+                location.reload(true);
+        });
     };
     return AppComponent;
 }());
@@ -70,9 +92,11 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__crud_crud_service__["a" /* CrudService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__crud_crud_service__["a" /* CrudService */]) === "function" && _a || Object])
 ], AppComponent);
 
+var _a;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -494,8 +518,8 @@ var CrudService = (function () {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            localStorage.setItem('user', JSON.stringify(user));
-            // ...
+            localStorage.setItem('user', JSON.stringify(result));
+            // ...      
             console.log(result);
             callBack(user);
         }).catch(function (error) {
@@ -542,7 +566,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>\n  login works!\n</h3>\n\n<form>\n  <div class=\"row\">\n    <div class=\"col\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"email\">\n    </div>\n    <div class=\"col\">\n      <input type=\"password\" class=\"form-control\" placeholder=\"password\">\n    </div>\n    <div class=\"col\">\n      <button class=\"btn btn-primary\" (click)=\"login()\">login</button>\n    </div>    \n  </div>\n</form>"
+module.exports = "<h3>\n  login works!\n</h3>\n\n<form>\n  <div class=\"row\">\n    <div class=\"col\">\n      <input type=\"text\" class=\"form-control\" placeholder=\"email\">\n    </div>\n    <div class=\"col\">\n      <input type=\"password\" class=\"form-control\" placeholder=\"password\">\n    </div>\n    <div class=\"col\">\n      <button class=\"btn btn-outline-dark\" (click)=\"login()\" tippy=\"Sign in with Google\">\n        <!--i class=\"fa fa-google\" aria-hidden=\"true\"></i-->\n        <img style=\"height: 18px;\" src=\"https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg\">\n        Login\n      </button>\n    </div>\n  </div>\n</form>"
 
 /***/ }),
 
@@ -602,12 +626,14 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_service__ = __webpack_require__("../../../../../src/app/login/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -622,7 +648,8 @@ LoginModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__login_component__["a" /* LoginComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_2__login_component__["a" /* LoginComponent */]],
